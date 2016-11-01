@@ -13,19 +13,30 @@ package main
 
 import (
 	"fmt"
+	"strconv"
+	"math/rand"
 )
 
 func main() {
-
-	trecimate(33)
-	// expected output of trecimate(33)
-	// Have 33, adding 0
-	// Have 11, adding 1
-	// Have 4, adding -1
-	// Have 1, stopping
-
+	trecimate(rand.Int())
 }
 
-func trecimate(n int) {
-	fmt.Println("Replace this to get the required output")
+func trecimate(n int) int {
+	num := n
+	for {
+		fmt.Printf("Have %s, ", strconv.Itoa(num))
+		if (num % 3) == 0 {
+			fmt.Println("dividing by 3 \n")
+			num = num / 3
+		} else {
+			fmt.Println("subtracting 1 \n")
+			num = num -1
+		}
+		if( num == 1) {
+			fmt.Println("Got one!")
+			break
+		}
+	}
+
+	return num
 }
